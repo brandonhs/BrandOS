@@ -1,4 +1,4 @@
-.PHONY: all clean build geniso run
+.PHONY: all clean build geniso run test
 
 include make.config
 
@@ -15,3 +15,5 @@ clean:
 
 run: geniso
 	qemu-system-$(ARCH) -cdrom brandos.iso
+
+test: run clean
