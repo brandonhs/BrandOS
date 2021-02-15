@@ -1,6 +1,6 @@
-/**
+/*
  * BrandOS
- * file: gdt.h  Copyright (C) 2021  Brandon Stevens
+ * file: brandos.h  Copyright (C) 2021  Brandon Stevens
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,26 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
-#include <stdint.h>
-
-/* Defines a GDT entry */
-struct gdt_entry {
-    uint16_t limit_low;
-    uint16_t base_low;
-    uint8_t base_middle;
-    uint8_t access;
-    uint8_t granularity;
-    uint8_t base_high;
-} __attribute__((packed));
-
-/* Pointer to GDT structure */
-struct gdt_ptr {
-    uint16_t limit;
-    uint32_t base;
-} __attribute__((packed));
-
-extern void gdt_flush();
-
-/* install the GDT */
-void gdt_install();
+#ifndef _KERNEL_BRANDOS_H
+    #define _KERNEL_BRANDOS_H
+    #include <kernel/tty.h>
+    #include <kernel/ports.h>
+    #include <kernel/arch.h>
+#endif /* _KERNEL_BRANDOS_H */

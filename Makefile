@@ -13,5 +13,5 @@ geniso: build
 clean:
 	./scripts/clean.sh
 
-run:
+run: geniso
 	qemu-system-$(ARCH) -cdrom brandos.iso

@@ -28,5 +28,5 @@ void kmain( void ) {
      */
     arch_init();
 
-    for (;;) tty_writestring("Hello");
+    for (;;) tty_writestring("Hello World");
 }

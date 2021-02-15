@@ -1,6 +1,6 @@
 /**
  * BrandOS
- * file: gdt.h  Copyright (C) 2021  Brandon Stevens
+ * file: string.h  Copyright (C) 2021  Brandon Stevens
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,25 +17,13 @@
  */
 
 
-#include <stdint.h>
+#ifndef _LIBK_STRING_H
+#define _LIBK_STRING_H
 
-/* Defines a GDT entry */
-struct gdt_entry {
-    uint16_t limit_low;
-    uint16_t base_low;
-    uint8_t base_middle;
-    uint8_t access;
-    uint8_t granularity;
-    uint8_t base_high;
-} __attribute__((packed));
+#include <stddef.h>
 
-/* Pointer to GDT structure */
-struct gdt_ptr {
-    uint16_t limit;
-    uint32_t base;
-} __attribute__((packed));
+size_t strlen(const char *);
+void* memcpy(void *, const void *, const size_t);
+void* memset(void *, unsigned char _b, const size_t);
 
-extern void gdt_flush();
-
-/* install the GDT */
-void gdt_install();
+#endif
