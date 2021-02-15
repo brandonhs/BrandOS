@@ -40,6 +40,7 @@ $(KERNEL_DIR_OBJS) \
 
 KERNEL_INCLUDE_DIRS= \
 include/. \
+$(KERNEL_ARCH_INCLUDE)
 
 .PHONY: all clean install
 .SUFFIXES: .o .c .asm
@@ -71,7 +72,7 @@ install-headers:
 	mkdir -p $(DESTDIR)$(INCLUDEDIR)
 	cp -R --preserve=timestamps $(KERNEL_INCLUDE_DIRS) $(DESTDIR)$(INCLUDEDIR)/
 	# make include directory for architecture specific headers
-	mkdir -p $(DESTDIR)$(ARCH_INCLUDEDIR)
-	cp -R --preserve=timestamps $(KERNEL_ARCH_INCLUDE) $(DESTDIR)$(ARCH_INCLUDEDIR)/
+	# mkdir -p $(DESTDIR)$(ARCH_INCLUDEDIR)
+	# cp -R --preserve=timestamps $(KERNEL_ARCH_INCLUDE) $(DESTDIR)$(ARCH_INCLUDEDIR)/
 
 -include $(OBJS:.o=.d)

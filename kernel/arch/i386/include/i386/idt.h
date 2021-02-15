@@ -1,6 +1,6 @@
 /**
  * BrandOS
- * file: arch_init.c  Copyright (C) 2021  Brandon Stevens
+ * file: idt.h  Copyright (C) 2021  Brandon Stevens
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,13 +17,4 @@
  */
 
 
-#include <kernel/brandos.h>
-#include <i386/gdt.h>
-#include <i386/idt.h>
-
-void arch_init() {
-    /* install and initalize the gdt */
-    gdt_install();
-
-    idt_install();
-}
+void idt_install();
