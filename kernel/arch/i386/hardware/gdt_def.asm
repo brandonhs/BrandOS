@@ -1,6 +1,6 @@
  ;
  ; BrandOS
- ; file: gdt.asm  Copyright (C) 2021  Brandon Stevens
+ ; file: gdt_def.asm  Copyright (C) 2021  Brandon Stevens
  ; 
  ; This program is free software: you can redistribute it and/or modify
  ; it under the terms of the GNU General Public License as published by
