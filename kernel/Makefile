@@ -29,6 +29,7 @@ CFLAGS += -ffreestanding -Wall -Wextra -Iinclude
 PREFIX?=/usr/
 ARCHDIR=arch/$(ARCH)
 INCLUDEDIR?=$(PREFIX)include
+ARCH_INCLUDEDIR?=$(INCLUDEDIR)/$(ARCH)
 
 include $(ARCHDIR)/make.config
 include kernel/make.config
@@ -69,5 +70,8 @@ install-kernel:
 install-headers:
 	mkdir -p $(DESTDIR)$(INCLUDEDIR)
 	cp -R --preserve=timestamps $(KERNEL_INCLUDE_DIRS) $(DESTDIR)$(INCLUDEDIR)/
+	# make include directory for architecture specific headers
+	mkdir -p $(DESTDIR)$(ARCH_INCLUDEDIR)
+	cp -R --preserve=timestamps $(KERNEL_ARCH_INCLUDE) $(DESTDIR)$(ARCH_INCLUDEDIR)/
 
 -include $(OBJS:.o=.d)
