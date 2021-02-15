@@ -20,4 +20,5 @@
     #define _KERNEL_BRANDOS_H
     #include <kernel/tty.h>
     #include <kernel/ports.h>
+    #include <kernel/arch.h>
 #endif /* _KERNEL_BRANDOS_H */
