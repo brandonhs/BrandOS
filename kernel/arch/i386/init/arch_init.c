@@ -21,5 +21,6 @@
 #include <i386/gdt.h>
 
 void arch_init() {
-    
+    /* install and initalize the gdt */
+    gdt_install();
 }

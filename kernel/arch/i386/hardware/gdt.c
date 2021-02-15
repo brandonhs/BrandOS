@@ -19,6 +19,8 @@
 
 #include <stdint.h>
 
+#include <i386/gdt.h>
+
 /* Defines a GDT entry */
 struct gdt_entry {
     uint16_t limit_low;

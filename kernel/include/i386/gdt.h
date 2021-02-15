@@ -17,4 +17,5 @@
  */
 
 
-
+/* install the GDT */
+void gdt_install();
