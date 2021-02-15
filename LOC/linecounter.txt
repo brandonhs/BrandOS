@@ -1,0 +1,76 @@
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2021-02-14 20:18:30
+count workspace : /home/brandonnms/Kernel2
+total files : 51
+total code lines : 794
+total comment lines : 412
+total blank lines : 225
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |             .c|            177|            143|             60|     22|
+   |        .config|             15|              0|              1|    1.9|
+   |               |            285|             18|             66|     36|
+   |           .asm|             97|              3|             13|     12|
+   |            .ld|             25|              0|              0|    3.1|
+   |             .h|            140|            242|             70|     18|
+   |            .sh|             19|              3|              6|    2.4|
+   |           .cfg|              3|              0|              0|   0.38|
+   |            .md|             33|              3|              9|    4.2|
+   -------------------------------------------------------------------------
+.gitignore, code is 2, comment is 0, blank is 0.
+brandos.iso, it is a binary file.
+isodir/boot/grub/grub.cfg, code is 3, comment is 0, blank is 0.
+isodir/boot/kernel.bin, it is a binary file.
+kernel/arch/i386/boot/legacy/boot.asm, code is 48, comment is 1, blank is 9.
+kernel/arch/i386/boot/legacy/boot.o, it is a binary file.
+kernel/arch/i386/hardware/gdt.c, code is 35, comment is 21, blank is 12.
+kernel/arch/i386/hardware/gdt.o, it is a binary file.
+kernel/arch/i386/hardware/gdt_def.asm, code is 32, comment is 1, blank is 2.
+kernel/arch/i386/hardware/gdt_def.o, it is a binary file.
+kernel/arch/i386/hardware/idt.asm, code is 17, comment is 1, blank is 2.
+kernel/arch/i386/linker.ld, code is 25, comment is 0, blank is 0.
+kernel/arch/i386/make.config, code is 6, comment is 0, blank is 0.
+kernel/arch/i386/system/ports.c, code is 17, comment is 17, blank is 6.
+kernel/arch/i386/system/ports.o, it is a binary file.
+kernel/arch/i386/system/tty.c, code is 91, comment is 20, blank is 25.
+kernel/arch/i386/system/tty.o, it is a binary file.
+kernel/include/i386/gdt.h, code is 0, comment is 17, blank is 3.
+kernel/include/i386/vga.h, code is 28, comment is 17, blank is 7.
+kernel/include/kernel/arch.h, code is 5, comment is 19, blank is 4.
+kernel/include/kernel/brandos.h, code is 5, comment is 17, blank is 1.
+kernel/include/kernel/ports.h, code is 8, comment is 17, blank is 6.
+kernel/include/kernel/tty.h, code is 17, comment is 17, blank is 9.
+kernel/include/string.h, code is 7, comment is 17, blank is 5.
+kernel/kernel.bin, it is a binary file.
+kernel/kernel/init/arch_init.c, code is 6, comment is 17, blank is 5.
+kernel/kernel/init/arch_init.o, it is a binary file.
+kernel/kernel/init/kernel.c, code is 7, comment is 17, blank is 3.
+kernel/kernel/init/kernel.o, it is a binary file.
+kernel/kernel/lib/string/memcpy.c, code is 8, comment is 17, blank is 3.
+kernel/kernel/lib/string/memcpy.o, it is a binary file.
+kernel/kernel/lib/string/memset.c, code is 7, comment is 17, blank is 3.
+kernel/kernel/lib/string/memset.o, it is a binary file.
+kernel/kernel/lib/string/strlen.c, code is 6, comment is 17, blank is 3.
+kernel/kernel/lib/string/strlen.o, it is a binary file.
+kernel/kernel/make.config, code is 9, comment is 0, blank is 1.
+kernel/Makefile, code is 48, comment is 15, blank is 13.
+LICENSE, code is 219, comment is 3, blank is 47.
+Makefile, code is 16, comment is 0, blank is 6.
+README.md, code is 33, comment is 3, blank is 9.
+scripts/build.sh, code is 3, comment is 1, blank is 1.
+scripts/clean.sh, code is 5, comment is 1, blank is 2.
+scripts/iso.sh, code is 11, comment is 1, blank is 3.
+sysroot/boot/kernel.bin, it is a binary file.
+sysroot/usr/include/i386/gdt.h, code is 0, comment is 17, blank is 3.
+sysroot/usr/include/i386/vga.h, code is 28, comment is 17, blank is 7.
+sysroot/usr/include/kernel/arch.h, code is 5, comment is 19, blank is 4.
+sysroot/usr/include/kernel/brandos.h, code is 5, comment is 17, blank is 1.
+sysroot/usr/include/kernel/ports.h, code is 8, comment is 17, blank is 6.
+sysroot/usr/include/kernel/tty.h, code is 17, comment is 17, blank is 9.
+sysroot/usr/include/string.h, code is 7, comment is 17, blank is 5.
+===============================================================================
