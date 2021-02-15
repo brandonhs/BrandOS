@@ -1,6 +1,6 @@
 /**
  * BrandOS
- * file: kernel.c  Copyright (C) 2021  Brandon Stevens
+ * file: printk.c  Copyright (C) 2021  Brandon Stevens
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,17 +17,27 @@
  */
 
 
-#include <kernel/brandos.h>
 #include <printk.h>
+#include <stddef.h>
+#include <string.h>
 
-void kmain( void ) {
-    tty_initialize();
+#include <kernel/brandos.h>
 
-    /**
-     * initalize architecture specific code
-     * such as GDT and IDT for x86.
-     */
-    arch_init();
-
-    printk("Welcome to: %s! %s!", "BrandOS", "Have Fun");
+int printk(const char *fmt, ...) {
+    va_list args;
+    int r;
+    // TODO: replace with propper memory allocation
+    va_start(args, fmt);
+    const size_t n = strlen(fmt);
+    for (size_t i=0; i < n; i++) {
+        if (fmt[i] == '%') {
+            ++i;
+            if (fmt[i] == 's') {
+                char *a = va_arg(args, char*);
+                tty_writestring(a);
+            }
+        } else {
+            tty_putchar(fmt[i]);
+        }
+    }
 }
