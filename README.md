@@ -9,31 +9,33 @@ BrandOS is a a lightweight x86 legacy bios operating system using [GRUB](https:/
 * i386/i686 [cross compiler](https://github.com/TheRealJoe24/osdev-i386-cross-utils)
 * gnu grub version 2.05 (other versions may also work)
 
-### Build Scripts:
+### Commands:
 
+To build and generate iso image:
 ```sh
-./build.sh
+make
 ```
+To clean directory:
 ```sh
-./iso.sh # builds from source and creates iso with grub
+make clean
 ```
+To run with qemu emulator:
 ```sh
-./qemu-run.sh # makes iso and runs with qemu
-```
-```sh
-./clean.sh
+make run
 ```
 
 ## Structure
-The code structure is based lightly on the osdev wiki meaty skeleton.
+TODO
 
 ## Contributing
 Pull requests are welcome, however I am currently not accepting any major changes.
 
 ## Roadmap
 * ~~Setup project structure~~
-* Implmement basic kernel lib
+* ~~Implmement basic kernel lib~~
 * Implement IDT/GDT in the kernel
+  * ~~GDT~~
+  * IDT
 * Implement timer and keyboard IRQs
 * Enter userland
   * Implememnt libc
