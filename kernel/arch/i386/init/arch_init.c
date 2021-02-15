@@ -18,11 +18,8 @@
 
 
 #include <kernel/brandos.h>
-
-void arch_init() {
-#ifdef _ARCH_I386
-
 #include <i386/gdt.h>
 
-#endif
+void arch_init() {
+    
 }
