@@ -21,7 +21,12 @@
 
 void kmain( void ) {
     tty_initialize();
-    for (;;)
-        tty_writestring("Hello, World!");
-    return;
+
+    /**
+     * initalize architecture specific code
+     * such as GDT and IDT for x86.
+     */
+    arch_init();
+
+    for (;;) tty_writestring("Hello");
 }
