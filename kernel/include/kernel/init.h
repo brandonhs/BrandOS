@@ -17,12 +17,12 @@
  */
 
 
-#ifndef _KERNEL_ARCH_H
-#define _KERNEL_ARCH_H
+#ifndef _KERNEL_INIT_H
+#define _KERNEL_INIT_H
 #include <kernel/brandos.h>
 
 /* Architecture specific initialize function.
 *  EX. GDT for x86 */
 void arch_init();
 
-#endif /* _KERNEL_ARCH_H */
+#endif /* _KERNEL_INIT_H */
