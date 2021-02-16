@@ -45,11 +45,14 @@ $(KERNEL_ARCH_INCLUDE)
 .PHONY: all clean install
 .SUFFIXES: .o .c .asm
 
-all: install-headers kernel.bin install-kernel
+all: install-headers kernel.bin install-kernel kernel.elf
 
 kernel.bin: $(KERNEL_OBJS) $(ARCHDIR)/linker.ld
 	$(CC) -T $(ARCHDIR)/linker.ld -o $@ $(CFLAGS) $(LDFLAGS) $(KERNEL_OBJS)
 	grub-file --is-x86-multiboot $@
+
+kernel.elf: $(KERNEL_OBJS) $(ARCHDIR)/linker.ld
+	$(CC) $(ARCHDIR)/linker.ld -o $@ $(CFLAGS) $(LDFLAGS) $(KERNEL_OBJS)
 
 %.o: %.c
 	$(CC) -MD -c $< -o $@ $(CFLAGS)
@@ -58,7 +61,7 @@ kernel.bin: $(KERNEL_OBJS) $(ARCHDIR)/linker.ld
 	$(AS) -f elf32 -o $@ $<
 
 clean:
-	rm -f kernel.bin
+	rm -f kernel.bin kernel.elf
 	rm -f $(KERNEL_OBJS) *.o */*.o */*/*.o
 	rm -f $(KERNEL_OBJS:.o=.d) *.d */*.d */*/*.d
 
