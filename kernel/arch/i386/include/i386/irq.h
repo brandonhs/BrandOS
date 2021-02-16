@@ -1,6 +1,6 @@
 /**
  * BrandOS
- * file: kernel.c  Copyright (C) 2021  Brandon Stevens
+ * file: irq.h  Copyright (C) 2021  Brandon Stevens
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,25 +17,16 @@
  */
 
 
-#include <kernel/brandos.h>
-#include <printk.h>
-#include <i386/isrs.h>
-#include <i386/irq.h>
+#ifndef _ARCH_I386_IRQ_H
+#define _ARCH_I386_IRQ_H
 
-void keyboard(struct regs *r) {
-    inb(0x60);
-}
+/**
+ * IRQ function handler typedef definition
+*/
+typedef void (irq_t)(struct regs *r);
 
-void kmain( void ) {
-    tty_initialize();
+void irq_install();
+void irq_install_handler(int irq, irq_t); 
+void irq_uninstall_handler(int irq); 
 
-    /**
-     * initalize architecture specific code
-     * such as GDT and IDT for x86.
-     */
-    arch_init();
-
-    irq_install_handler(1, keyboard);
-
-    printk("Welcome to: %s! %s!", "BrandOS", "Have Fun");
-}
+#endif
