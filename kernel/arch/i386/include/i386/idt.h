@@ -1,26 +1,30 @@
-/**
- * BrandOS
- * file: idt.h  Copyright (C) 2021  Brandon Stevens
- * 
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+#ifndef IDT_H
+#define IDT_H
 
-
-#ifndef _ARCH_I386_IDT_H
-#define _ARCH_I386_IDT_H
 #include <stdint.h>
 
-void idt_install();
-void idt_set_gate(uint8_t num, uint32_t base, uint16_t sel, uint8_t flags);
+typedef struct {
+    uint16_t offset_low;
+    uint16_t selector;
+    uint8_t zero;
+    uint8_t flags;
+    uint16_t offset_high;
+} __attribute__((packed)) idt_gate_t;
+
+typedef struct {
+    uint16_t limit;
+    uint32_t base;
+} __attribute__((packed)) idt_regiseter_t;
+
+idt_gate_t IDT[256];
+idt_regiseter_t idt_reg;
+
+
+void set_idt_gate(int n, uint32_t handler);
+void set_idt();
+
+
+#define low_16(address) (uint16_t)((address) & 0xffff)
+#define high_16(address) (uint16_t)((address >> 16) & 0xffff)
+
 #endif

@@ -20,15 +20,14 @@
 #include <kernel/brandos.h>
 #include <i386/gdt.h>
 #include <i386/idt.h>
-#include <i386/isrs.h>
-#include <i386/irq.h>
+#include <i386/isr.h>
+//#include <i386/irq.h>
 
 void arch_init() {
     /* install and initalize the gdt */
     gdt_install();
-    idt_install();
-    isrs_install();
-    irq_install();
-    
-    __asm__ ("sti");
+    // idt_install();
+    // isrs_install();
+    // irq_install();
+    isr_install();
 }

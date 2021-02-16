@@ -46,6 +46,7 @@ mboot:
     dd start
 
 stublet:
+    cli
     call kmain
     jmp $
 

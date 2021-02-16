@@ -62,3 +62,10 @@ dkms.conf
 **/.history
 
 # End of https://www.gitignore.io/api/visualstudiocode
+
+# bochs
+**/bochsrc.txt
+**/bx_enh_dbg.ini
+
+# brandos
+**/old

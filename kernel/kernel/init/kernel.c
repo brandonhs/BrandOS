@@ -19,12 +19,9 @@
 
 #include <kernel/brandos.h>
 #include <printk.h>
-#include <i386/isrs.h>
-#include <i386/irq.h>
+#include <i386/isr.h>
 
-void keyboard(struct regs *r) {
-    inb(0x60);
-}
+void keyboard(registers_t r);
 
 void kmain( void ) {
     tty_initialize();
@@ -35,7 +32,15 @@ void kmain( void ) {
      */
     arch_init();
 
-    irq_install_handler(1, keyboard);
+    asm volatile ("sti");
 
-    printk("Welcome to: %s! %s!", "BrandOS", "Have Fun");
+    register_interrupt_handler(IRQ0, keyboard);
+
+    for (;;) asm("hlt");
+}
+
+
+void keyboard(registers_t r) {
+    inb(0x60);
+    printk("df");
 }
