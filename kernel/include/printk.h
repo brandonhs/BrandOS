@@ -17,6 +17,8 @@
  */
 
 
+#ifndef _ARCH_I386_PRINTK_H
+#define _ARCH_I386_PRINTK_H
 #include <stdarg.h>
 
 /** 
@@ -24,3 +26,4 @@
  * capabilities.
  */
 int printk(const char *, ...);
+#endif

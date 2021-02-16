@@ -17,6 +17,8 @@
  */
 
 
+#ifndef _ARCH_I386_GDT_H
+#define _ARCH_I386_GDT_H
 #include <stdint.h>
 
 /* Defines a GDT entry */
@@ -39,3 +41,4 @@ extern void gdt_flush();
 
 /* install the GDT */
 void gdt_install();
+#endif
