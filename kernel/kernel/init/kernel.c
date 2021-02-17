@@ -19,9 +19,7 @@
 
 #include <kernel/brandos.h>
 #include <printk.h>
-#include <i386/isr.h>
-
-void keyboard(registers_t r);
+#include <drivers/keyboard.h>
 
 void kmain( void ) {
     tty_initialize();
@@ -32,13 +30,12 @@ void kmain( void ) {
      */
     arch_init();
 
-    register_interrupt_handler(IRQ0, keyboard);
+    /* initialize keyboard driver */
+    initialize_keyboard();
 
-    for (;;) asm("hlt");
-}
-
-
-void keyboard(registers_t r) {
-    inb(0x60);
-    printk("df");
+    for (;;) {
+        asm("hlt");
+        char s = read_next();
+        if (s) tty_putchar(s);
+    }
 }
