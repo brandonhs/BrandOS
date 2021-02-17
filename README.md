@@ -49,7 +49,7 @@ Pull requests are welcome, however I am currently not accepting any major change
 Create a self-hosting OS (Make an OS which can build itself)
 
 ## Why am I trying to write an OS not even meant for modern hardware?
-I have seen a lot of people on forums of all places who say that *"the purpose of developing an operating system is to make a killer OS with all kinds of applications in the real world"*. I don't agree with that. Instead, I am writing an operating system for the sole purpose of experience and fun. To be able to say, *"I made an operating system in high school"*, is my dream for this whole endeavor. To say that I am new to operating system development, is an understatment, however **the experience of learning is most important to me**.
+I have seen a lot of people on forums of all places who say that *"the purpose of developing an operating system is to make a killer OS with all kinds of applications in the real world"*. I don't agree with that. Instead, I am writing an operating system for the sole purpose of experience and fun. To be able to say, *"I made an operating system in high school"*, is my dream for this whole endeavor. To say that I am new to operating system development is an understatment. However **the experience of learning is most important to me**.
 
 The experience which comes out of low level os development has all kinds of real world applications. Complex build systems, memory manangment and allocation, and an understanding of kernel development are just a few which come to mind.
 
