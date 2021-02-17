@@ -117,7 +117,7 @@ char *exception_messages[] = {
 void isr_handler(registers_t r) {
     printk("received interrupt: ");
     printk(exception_messages[r.int_no]);
-    //printk("\n");
+    printk("\n");
     for (;;) asm("hlt");
 }
 

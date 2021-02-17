@@ -22,10 +22,14 @@
 
 #include <stdint.h>
 
+/* send data byte to specified port */
 void outb(uint16_t port, uint8_t data);
+/* recieve data byte from specified port */
 uint8_t inb(uint16_t port);
 
+/* send data word to specified port */
 void outw(uint16_t port, uint16_t data);
+/* recieve data word from specified port */
 uint16_t inw(uint16_t port);
 
 #endif /* _KERNEL_SYS_H */

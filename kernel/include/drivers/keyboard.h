@@ -1,6 +1,6 @@
 /**
  * BrandOS
- * file: arch_init.c  Copyright (C) 2021  Brandon Stevens
+ * file: keyboard.h  Copyright (C) 2021  Brandon Stevens
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,19 +17,28 @@
  */
 
 
-#define ENABLE() asm volatile("sti")
-#define DISABLE() asm volatile("cli")
+#ifndef _DRIVERS_KEYBOARD_H
+#define _DRIVERS_KEYBOARD_H
 
-#include <kernel/brandos.h>
-#include <i386/gdt.h>
-#include <i386/idt.h>
-#include <i386/isr.h>
+#define STATE_PRESS   1 /* key state is pressed */
+#define STATE_RELEASE 0 /* key state is released */
 
-void arch_init() {
-    /* install and initalize the gdt */
-    gdt_install();
-    /* install interrupts */
-    isr_install();
-    /* enable interrupts */
-    ENABLE();
-}
+#include <stdint.h>
+
+/* current states of 'alternate' keys */
+typedef struct {
+    uint8_t caps_lock, shift;
+} kbd_state_t;
+
+/* initialize the keyboard driver */
+void initialize_keyboard();
+
+/* read from keyboard buffer */
+unsigned char read(int index);
+/* read next character from keyboard buffer */
+unsigned char read_next();
+
+/* read current state of keyboard EX. caps lock / shift key */
+kbd_state_t get_kbd_state();
+
+#endif /* _DRIVERS_KEYBOARD_H */

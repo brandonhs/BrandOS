@@ -32,8 +32,6 @@ void kmain( void ) {
      */
     arch_init();
 
-    asm volatile ("sti");
-
     register_interrupt_handler(IRQ0, keyboard);
 
     for (;;) asm("hlt");
