@@ -50,8 +50,8 @@ stublet:
     call kmain
     jmp $
 
-;%include "../descriptors/gdt.asm"
-;%include "../descriptors/isr.asm"
+%include "arch/i386/hardware/asm/gdt.asm"
+%include "arch/i386/hardware/asm/interrupt.asm"
 
 SECTION .bss
     resb 8192
